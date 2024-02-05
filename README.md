@@ -48,7 +48,7 @@ Design the access control system using a servo motor for door operation and a gr
 1. **Install and run the Mosquitto MQTT Broker** on your PC.
 2. **Power the ESP32-CAM** and ensure it's connected to the same network as your PC for seamless face recognition and data transmission.
 3. **Power the Raspberry Pi Pico W**; it should automatically connect to Wi-Fi and the MQTT broker to receive commands and manage the access control mechanism.
-4. **Execute the face recognition script** on your PC to analyze the ESP32-CAM video feeds and recognize faces. This script also handles RFID tag recognition, sending appropriate commands to the Pico W for access control.
+4. **Execute the face recognition script** on your PC to analyze the ESP32-CAM video feeds, recognize faces and send appropriate commands to the Pico W for access control.
 
 ## Extending the System
 
@@ -57,8 +57,6 @@ Integrate RFID functionality to grant access through RFID tags alongside face re
 
 ## Contributing
 
-Contributions to this project are welcome. Fork the repository, make your changes, and submit a pull request for review.
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
