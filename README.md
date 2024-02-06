@@ -1,6 +1,6 @@
 # ESP32-CAM and RFID-Based Attendance System with Door Access Control
 
-This guide provides a step-by-step approach to building an advanced attendance system that leverages both ESP32-CAM for facial recognition and an RFID module for tag detection. When an individual is recognized or an RFID tag is validated, a green LED lights up and a servo motor operates to simulate door opening, granting access. The system also logs attendance in a CSV file and uploads images of recognized faces to Google Drive. Utilizing MQTT for communication, the Raspberry Pi Pico W displays the authenticated person's name or RFID tag ID on an I2C LCD and controls the access mechanism.
+This project integrates ESP32-CAM and RFID technology to create a versatile attendance system and access control solution. The system employs the ESP32-CAM for facial recognition and an RFID reader connected to a Raspberry Pi Pico W for tag scanning. Upon successful identification or tag validation, the Raspberry Pi Pico W activates a servo motor to simulate door opening and displays the user's name on an I2C LCD. Attendance records are maintained in a CSV file, and images of recognized individuals are uploaded to Google Drive for record-keeping. Communication between the main PC and the Raspberry Pi Pico W is facilitated through MQTT, exclusively used for transmitting recognition results and control commands for the access mechanism.
 
 ## Prerequisites
 
@@ -10,8 +10,6 @@ This guide provides a step-by-step approach to building an advanced attendance s
 - Raspberry Pi Pico W
 - I2C LCD display
 - Servo motor
-- Green LED
-- 330Ω resistor for LED
 
 ### Software
 - [Mosquitto MQTT Broker](https://mosquitto.org/download/) on PC
@@ -23,39 +21,38 @@ This guide provides a step-by-step approach to building an advanced attendance s
 ## Setup and Configuration
 
 ### MQTT Broker Setup
-Before powering up your devices, ensure the Mosquitto MQTT Broker is installed and running on your PC. Follow [Cedalo's guide](https://cedalo.com/blog/how-to-install-mosquitto-mqtt-broker-on-windows/) for installation. Use the following commands to manage the Mosquitto service:
+Install and configure the Mosquitto MQTT Broker on your PC before initiating the system, as detailed in [Cedalo's installation guide](https://cedalo.com/blog/how-to-install-mosquitto-mqtt-broker-on-windows/). Manage the service with:
 - **To start the broker**: `sc start mosquitto`
 - **To stop the broker**: `sc stop mosquitto`
 - **To check the broker status**: `sc query mosquitto`
 
 ### ESP32-CAM Configuration
-Set up the ESP32-CAM for video capture and Wi-Fi connectivity following [this detailed guide](https://how2electronics.com/face-recognition-based-attendance-system-using-esp32-cam/).
+Follow [this guide](https://how2electronics.com/face-recognition-based-attendance-system-using-esp32-cam/) to set up the ESP32-CAM for capturing video and connecting to Wi-Fi for facial recognition processing.
 
-### RFID Reader Integration
-Connect the RFID reader to your Raspberry Pi Pico W, ensuring proper SPI communication. Use [this resource](https://github.com/wendlers/micropython-mfrc522) for library support and setup instructions.
+### RFID Reader Integration with Raspberry Pi Pico W
+Set up the RFID reader with the Raspberry Pi Pico W, ensuring correct SPI communication. Library support and setup instructions are available in [this GitHub resource](https://github.com/wendlers/micropython-mfrc522).
 
 ### Google Drive Integration
-Configure automatic upload of captured images to Google Drive by following [this tutorial](https://how2electronics.com/how-to-send-esp32-cam-captured-image-to-google-drive/).
+Set up Google Drive to automatically receive uploaded images of recognized individuals by following [this tutorial](https://how2electronics.com/how-to-send-esp32-cam-captured-image-to-google-drive/).
 
 ### Raspberry Pi Pico W and I2C LCD Setup
-Prepare the Raspberry Pi Pico W to display information on an I2C LCD as per [this video tutorial](https://youtu.be/bXLgxEcT1QU?si=CtYzVgTlwoT3zRW1).
+Configure the Raspberry Pi Pico W to display authentication data on an I2C LCD with guidance from [this video tutorial](https://youtu.be/bXLgxEcT1QU?si=CtYzVgTlwoT3zRW1).
 
 ### Servo Motor Integration with Raspberry Pi Pico W
-To connect a servo motor to the Raspberry Pi Pico W for door access control, follow this guide on [servo motor control with MicroPython](https://www.hackster.io/raspberry-pi/projects). You will need to connect the servo's control wire to one of the Pico W's PWM-capable GPIO pins, and supply appropriate power to the servo.
+For connecting and controlling a servo motor with the Raspberry Pi Pico W, refer to [this MicroPython guide](https://www.hackster.io/raspberry-pi/projects).
 
 ## Running the System
 
-1. **Start the Mosquitto MQTT Broker** on your PC to ensure communication infrastructure is ready.
-2. **Power the ESP32-CAM** and **Raspberry Pi Pico W**; they should automatically connect to Wi-Fi and the MQTT broker, respectively.
-3. **Execute the face recognition script** on your PC. This script analyzes video feeds from the ESP32-CAM, recognizes faces, and communicates with the Pico W to manage access control.
+1. **Ensure the Mosquitto MQTT Broker** is up and operational on your PC to manage communications.
+2. **Power on the ESP32-CAM**, connecting it to the same Wi-Fi network as your PC.
+3. **Activate the Raspberry Pi Pico W**, ready to receive MQTT messages and RFID inputs.
+4. **Launch the facial recognition script** on your PC, which analyzes ESP32-CAM feeds and sends recognition results or commands to the Pico W for access control.
 
 ## Extending the System
 
-Integrating RFID provides a versatile and secure entry system. Future enhancements can include more sophisticated access control logic, additional sensors for enhanced security, or integration with other IoT devices.
+The system's modular design allows for the integration of RFID technology alongside facial recognition for enhanced security and flexibility. Future expansions may explore complex access control algorithms, additional security measures, or the incorporation of a broader range of IoT devices for a fully integrated management system.
 
 ## Contributing
-
-We welcome contributions! Please read through our contribution guidelines before making a pull request.
+Contributions are encouraged and appreciated.
 
 ## License
-
