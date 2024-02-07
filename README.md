@@ -2,7 +2,7 @@
 
 This project integrates ESP32-CAM and RFID technology to create a versatile attendance system and access control solution. The system employs the ESP32-CAM for facial recognition and an RFID reader connected to a Raspberry Pi Pico W for tag scanning. Upon successful identification or tag validation, the Raspberry Pi Pico W activates a servo motor to simulate door opening and displays the user's name on an I2C LCD. Attendance records are maintained in a CSV file, and images of recognized individuals are uploaded to Google Drive for record-keeping. Communication between the main PC and the Raspberry Pi Pico W is facilitated through MQTT, exclusively used for transmitting recognition results and control commands for the access mechanism.
 
-See [this video](https://youtu.be/rm8MsGPP1t8) for a live demonstration.
+See [this video](https://youtu.be/STzOZ4ky7z0?si=HyVFMCYeN7K7ofQj) for a live demonstration.
 
 ## Prerequisites
 
