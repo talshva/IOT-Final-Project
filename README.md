@@ -23,7 +23,7 @@ See [this video](https://youtu.be/STzOZ4ky7z0?si=HyVFMCYeN7K7ofQj) for a live de
 - [CircuitPython firmware for ESP32-CAM](https://circuitpython.org/board/esp32cam/)
 - MicroPython firmware on Raspberry Pi Pico W
 - Libraries for interfacing with I2C LCD and RFID on Pico W
--InfluxDB and Grafana for data visualization
+- InfluxDB and Grafana for data visualization
 
 ## Setup and Configuration
 
