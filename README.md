@@ -1,6 +1,8 @@
 # ESP32-CAM and RFID-Based Attendance System with Door Access Control
 
-This project integrates ESP32-CAM and RFID technology to create a versatile attendance system and access control solution. The system employs the ESP32-CAM for facial recognition and an RFID reader connected to a Raspberry Pi Pico W for card/tag scanning. Upon successful identification or tag validation, the Raspberry Pi Pico W activates a servo motor to simulate door opening and displays the user's name on an I2C LCD. Attendance records are uploaded to InfluxDB and connected to Grafana for data visualization, while also maintained in a local CSV file. 
+This project integrates ESP32-CAM and RFID technology to create a versatile attendance system and access control solution.
+The system employs the ESP32-CAM for facial recognition and an RFID reader connected to a Raspberry Pi Pico W for card/tag scanning. 
+Upon successful identification or tag validation, the Raspberry Pi Pico W activates a servo motor to simulate door opening and displays the user's name on an I2C LCD. Attendance records are uploaded to InfluxDB and connected to Grafana for data visualization, while also maintained in a local CSV file. 
 In addition, images of recognized individuals are uploaded to Google Drive for record-keeping.
 Communication between the main PC and the Raspberry Pi Pico W is facilitated through MQTT, exclusively used for transmitting recognition results and control commands for the access mechanism.
 
