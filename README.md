@@ -73,7 +73,7 @@ For connecting and controlling a servo motor with the Raspberry Pi Pico W, refer
 2. **Power on the ESP32-CAM**, connecting it to the same Wi-Fi network as your PC.
 3. **Activate the Raspberry Pi Pico W**, ready to receive and send MQTT messages and receive RFID inputs.
 4. **Launch the facial recognition script** on your PC, which analyzes ESP32-CAM feeds and sends recognition results or commands to the Pico W for access control.
-5. **Visualize data with Grafana (Optional): run Grafana server and UI to real-time visualize the attendance data saved in influxDB.
+5. **Visualize data with Grafana (Optional)**: run Grafana server and UI to real-time visualize the attendance data saved in influxDB.
 
 ## Extending the System
 The system's modular design allows for the integration of RFID technology alongside facial recognition for enhanced security and flexibility. Future expansions may explore complex access control algorithms, additional security measures, or the incorporation of a broader range of IoT devices for a fully integrated management system.
